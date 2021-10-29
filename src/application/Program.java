@@ -24,6 +24,12 @@ public class Program {
 		List<Seller> list = seller.findByDepartment(new Department(1, null));
 		for (Seller i : list)
 			System.out.println(i);
+
+		System.out.println("\n=== TEST 3: seller findByAll ====");
+		seller = DaoFactory.createSellerDao();
+		list = seller.findAll();
+		for (Seller i : list)
+			System.out.println(i);
 	}
 
 }
