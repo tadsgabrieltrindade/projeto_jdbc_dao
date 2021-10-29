@@ -1,17 +1,22 @@
 package application;
 
-import java.util.Date;
+import java.util.Scanner;
 
-import model.entities.Department;
+import model.dao.DaoFactory;
+import model.dao.SellerDao;
 import model.entities.Seller;
 
 public class Program {
 
 	public static void main(String[] args) {
-		Department d = new Department(05, "Computer");
-		Seller s = new Seller(23, "Marcos", "Marcos@gmail.com", new Date(), 4521.0, d);
-
-		System.out.println(s);
+		SellerDao seller = DaoFactory.createSellerDao();
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Digite um id: ");
+		int id = sc.nextInt();
+		
+		Seller resposta = seller.findById(id);
+		
+		System.out.println(resposta);
 	}
 
 }
